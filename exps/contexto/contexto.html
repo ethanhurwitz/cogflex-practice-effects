@@ -24,9 +24,9 @@
 
   // Create Data Variable
   var data = {
-//     'id': jsPsych.data.getURLVariable('id'),
-    'partID': [],
-    'partID2': jsPsych.data.getURLVariable('ID'),	  
+    'id': jsPsych.data.getURLVariable('id'),
+    // 'partID': [],
+    // 'partID2': jsPsych.data.getURLVariable('ID'),	  
     'date': new Date(),
     'timepoint': jsPsych.data.getURLVariable('timepoint'),
     'data': [
@@ -53,13 +53,16 @@
 // setE = jsPsych.randomization.repeat(setE, 1);
 // var setF = ['flower', 'moose', 'cookie', 'car', 'pencil'];
 // setF = jsPsych.randomization.repeat(setF, 1);   	
-var set1 = ['flower', 'moose', 'cookie', 'car', 'pencil', 'tree'];
+// var set1 = ['flower', 'moose', 'cookie', 'car', 'pencil', 'tree'];
+var set1 = ['flower', 'moose', 'cookie', 'pencil'];	
 set1 = jsPsych.randomization.repeat(set1, 1);
 
-var set2 = ['barbecue', 'pancake', 'camera', "scallop", "banana", "pirate"];
+// var set2 = ['barbecue', 'pancake', 'camera', "scallop", "banana", "pirate"];
+var set2 = ['barbecue', 'pancake', 'camera', "banana"];	
 set2 = jsPsych.randomization.repeat(set2, 1);
 
-var set3 = ["pumpkin", "spider", "mushroom", "aquarium", "horse", "frog"];
+// var set3 = ["pumpkin", "spider", "mushroom", "aquarium", "horse", "frog"];
+var set3 = ["pumpkin", "mushroom", "aquarium", "frog"];	
 set3 = jsPsych.randomization.repeat(set3, 1);
 
 var targets = {'word': [""],
@@ -158,9 +161,9 @@ const getBarColor = (distance) => {
 
 <div class="consent">
   <!-- <iframe src="https://ucsd-phri.github.io/2101/exps/contexto/151866_AdultConsent_MTurk.pdf#toolbar=0" width="100%" height="500px"></iframe> -->
-  <div style="width:350px; height:100px; position: relative; padding: 15px 0px; margin: auto;">
+<!--   <div style="width:350px; height:100px; position: relative; padding: 15px 0px; margin: auto;">
     <span contentEditable="true" id="id_input" class="id_input" style="margin:auto; display:block; padding: 20px 10px; line-height: 28px; font-size:25px; border-style: solid; text-align: center;">Replace Text With Your ID</span>
-  </div>
+  </div> -->
   <div style="position: relative; padding: 15px 0px;">
     <button type="button" class="button" style="margin:0 auto; display:block;" onclick="begin()">
       <div style="min-width: 104px;">Continue</div>
@@ -264,7 +267,7 @@ var change_class = function() {
 var time1 = new Date();
 var time_temp = new Date();
 let counter = 0;
-let guess_limit = 10;
+let guess_limit = 7;
 let close_enough = 30;
 let close_enough_on = 0;	
 </script>
@@ -541,7 +544,7 @@ let close_enough_on = 0;
           <h1>How to play:</h1>
        </div>
        <p>On each trial, there is a randomly selected secret word.<br>Your goal is to try and figure out that secret word.</p> 
-       <p>The secret word will always be a noun. You have a maximum of <u>10</u> guesses per trial.</p>
+       <p>The secret word will always be a noun. You have a maximum of <u>7</u> guesses per trial.</p>
        <p>The words were sorted by an artificial intelligence algorithm according to how similar they were to the secret word.</p>
        <p>After submitting a word, you will see its position. The secret word is number 1.</p>
        <!-- <p>The algorithm analyzed thousands of texts. It uses the context in which words are used to calculate the similarity between them.</p> -->
@@ -569,8 +572,9 @@ let close_enough_on = 0;
   (() => {
     $("#root").hide()
   })();
+    
     var begin = function() {
-      data.partID.push($(".id_input").text());
+      // data.id.push($(".id_input").text());
       $("#root").show();
       $(".consent").hide();
     };
