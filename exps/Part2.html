@@ -389,7 +389,8 @@ jsPsych.init({
 
     function SaveData(curData) {
   var dataToServer = {
-    'id': getPartID(),
+    // 'id': getPartID(),
+    'id': jsPsych.data.getURLVariable('id'),	  
     'experimenter': 'Ethan',
     'experimentName': 'CD_practice-effects_V1',
     'curData': curData
