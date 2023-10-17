@@ -381,7 +381,7 @@ jsPsych.init({
         endTime: endTime,
         // partID: JSON.parse(jsPsych.data.get().filter({type: 'partID'}).select('responses').values).partID,
 						  //  partID2: jsPsych.data.getURLVariable('ID')});
-    	id: jsPsych.data.getURLVariable('id')
+    	id: jsPsych.data.getURLVariable('id')});
             // jsPsych.data.displayData();
 			 SaveData(jsPsych.data.get().csv()); // .json()?
     }
