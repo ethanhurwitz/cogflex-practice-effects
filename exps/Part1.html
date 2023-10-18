@@ -346,7 +346,7 @@ jsPsych.data.addProperties({userAgent: navigator.userAgent,
 });
 
 getPartID = function() {
-  return jsPsych.data.getURLVariable('id')
+  return jsPsych.data.getURLVariable('id') + "_timepoint" + jsPsych.data.getURLVariable('timepoint')
 };
 
 jsPsych.init({
@@ -359,7 +359,7 @@ jsPsych.init({
         endTime: endTime,
         // partID: JSON.parse(jsPsych.data.get().filter({type: 'partID'}).select('responses').values).partID,
 						  //  partID2: jsPsych.data.getURLVariable('ID')});
-    	id: jsPsych.data.getURLVariable('id')});
+    	id: jsPsych.data.getURLVariable('id') + "_timepoint" + jsPsych.data.getURLVariable('timepoint')});
             // jsPsych.data.displayData();
 			 SaveData(jsPsych.data.get().csv()); // .json()?
     }
