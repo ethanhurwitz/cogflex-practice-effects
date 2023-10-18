@@ -381,7 +381,7 @@ jsPsych.init({
         endTime: endTime,
         // partID: JSON.parse(jsPsych.data.get().filter({type: 'partID'}).select('responses').values).partID,
 						  //  partID2: jsPsych.data.getURLVariable('ID')});
-    	id: jsPsych.data.getURLVariable('id')});
+    	id: jsPsych.data.getURLVariable('id') + "_timepoint" + jsPsych.data.getURLVariable('timepoint')});
             // jsPsych.data.displayData();
 			 SaveData(jsPsych.data.get().csv()); // .json()?
     }
@@ -390,7 +390,7 @@ jsPsych.init({
     function SaveData(curData) {
   var dataToServer = {
     // 'id': getPartID(),
-    'id': jsPsych.data.getURLVariable('id'),	  
+    'id': jsPsych.data.getURLVariable('id') + "_timepoint" + jsPsych.data.getURLVariable('timepoint'),	  
     'experimenter': 'Ethan',
     'experimentName': 'CD_practice-effects_V1',
     'curData': curData
