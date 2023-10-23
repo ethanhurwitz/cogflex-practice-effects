@@ -15,6 +15,7 @@ var isrcUtils = {
         'uid': 0,
         'duration': 0,
         'date': null,
+	'timepoint': null    
     },
 
 
@@ -281,7 +282,7 @@ var isrcUtils = {
         var currentTimeStamp = new Date();
         isrcUtils.data.date = currentTimeStamp;
         isrcUtils.data.duration = (currentTimeStamp - isrcUtils.initialTimeStamp) / 1000;
-       
+        isrcUtils.data.timepoint = new URL(location.href).searchParams.get("timepoint");
 
         console.log('# Saving Data...');
         console.log(isrcUtils.data);
@@ -313,9 +314,9 @@ var isrcUtils = {
     //         'curData': curData
     // }));
         var dataToServer = {
-          'id': isrcUtils.data.uid,
+          'id': isrcUtils.data.uid + '_' + isrcUtils.data.timepoint,
           'experimenter': 'Ethan',
-          'experimentName': 'kwg_meditation_v1',
+          'experimentName': 'kwg_practice-effects_v1',
           'curData': JSON.stringify(curData)
         };
 
