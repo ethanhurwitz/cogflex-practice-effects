@@ -348,6 +348,9 @@ function FunctionWhenDoneSaving() {
 
     let finish_msg = '<div class="end-msg" id="finish-msg">' +
   '<p class="bigger"><span>Your responses have been recorded.<br><br>Thank you!</span></p>' +
+	    '<button type="button" class="button" onclick="FunctionWhenDoneSaving()">'+
+           '<div style="min-width: 104px;">Finish</div>' +
+        '</button>' +
     '</div>'
 
     if (counter === targets.word.length) {
