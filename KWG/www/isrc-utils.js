@@ -312,7 +312,7 @@ var isrcUtils = {
     //         'curData': curData
     // }));
         var dataToServer = {
-          'id': isrcUtils.data.uid,
+          'id': isrcUtils.data.uid + '_' + isrcUtils.data.timepoint,
           'experimenter': 'Ethan',
           'experimentName': 'kwg_practice-effects_v1',
           'curData': JSON.stringify(curData)
