@@ -309,13 +309,13 @@ let close_enough_on = 0;
 };
 
 function FunctionWhenDoneSaving() {
-	if (jsPsych.data.getURLVariable('id') == "1") {
+	if (jsPsych.data.getURLVariable('timepoint') == "1") {
 		var urlToRedirect = "https://ucsd.sona-systems.com/webstudy_credit.aspx?experiment_id=2583&credit_token=0b0c6e5859294641a5e8930eaf30bc5e&survey_code=" + id;
        window.location.href = urlToRedirect;
-	} else if (jsPsych.data.getURLVariable('id') == "2") {
+	} else if (jsPsych.data.getURLVariable('timepoint') == "2") {
 		var urlToRedirect = "https://ucsd.sona-systems.com/webstudy_credit.aspx?experiment_id=2584&credit_token=40d35294a4dd4965aa646e75edded9e9&survey_code=" + id;
        window.location.href = urlToRedirect;
-	} else if (jsPsych.data.getURLVariable('id') == "3") {
+	} else if (jsPsych.data.getURLVariable('timepoint') == "3") {
 		var urlToRedirect = "https://ucsd.sona-systems.com/webstudy_credit.aspx?experiment_id=2585&credit_token=94ab4d3dcdbf46f491d3411db7ef4d16&survey_code=" + id;
        window.location.href = urlToRedirect;
 	}
