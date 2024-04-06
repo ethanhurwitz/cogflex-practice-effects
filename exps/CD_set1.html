@@ -86,14 +86,14 @@ var timeline = [];
 
 // timeline.push(consent);
 
-var consent= {
-  type: 'html-button-response',
-  stimulus: '<embed src="../151866_AdultConsent_clean.pdf#toolbar=0&navpanes=0" width="800" height="575" type="application/pdf">',
-    choices: ["I agree"],
-    data: {type: "consent"}
-};
+// var consent= {
+//   type: 'html-button-response',
+//   stimulus: '<embed src="../151866_AdultConsent_clean.pdf#toolbar=0&navpanes=0" width="800" height="575" type="application/pdf">',
+//     choices: ["I agree"],
+//     data: {type: "consent"}
+// };
 
-timeline.push(consent);
+// timeline.push(consent);
 
 var introCD = {
     type: 'html-keyboard-response',
@@ -101,7 +101,7 @@ var introCD = {
     '<u><b>Pay very close attention to only the RED part.</b></u><br><br>'+
     // 'On each trial, you will be asked two questions. '+
     // 'First, you will be asked whether or not the <b>RED</b> part is familiar. That is, whether or not it is something you have seen before in this task.<br>'+
-    `You will be asked whether the <b>YELLOW</b> part is familiar. That is, whether it is new or has been shown on a previous trial.<br>`+
+    `You will be asked whether the <b>RED</b> part is familiar. That is, whether it is new or has been shown on a previous trial.<br>`+
     'You will also be asked if the picture within each trial changes.<br><br>',
     // `You will be asked whether or not the <b>RED</b> part looks like something you've ever seen!<br>`+
     choices: ['space'],
@@ -248,7 +248,7 @@ for (i=0; i < CDcueTrialList.length; i++){
 
     CDcueTrials.push(//first image
     {type: 'html-keyboard-response',
-        stimulus: `<img class="CDimage" src='stimuli/set1/${CDcueTrialList[i][0]}.png'>`,
+        stimulus: `<img class="CDimage" src='stimuli/CD/set1/${CDcueTrialList[i][0]}.png'>`,
         choices: jsPsych.NO_KEYS,
         trial_duration: 1000,
         data: {exp: 'changeDetection',
@@ -261,7 +261,7 @@ for (i=0; i < CDcueTrialList.length; i++){
     CDcueTrials.push(//mask image
         {
     type: 'html-keyboard-response',
-    stimulus: `<img class='CDmask' src='stimuli/mask.png'>`,
+    stimulus: `<img class='CDmask' src='stimuli/CD/mask.png'>`,
     choices: jsPsych.NO_KEYS,
     trial_duration: 500,
     data: {
@@ -274,7 +274,7 @@ for (i=0; i < CDcueTrialList.length; i++){
 
     CDcueTrials.push(//second image
     {type: 'html-keyboard-response',
-        stimulus: `<img class="CDimage" src='stimuli/set1/${CDcueTrialList[i][1]}.png'>`,
+        stimulus: `<img class="CDimage" src='stimuli/CD/set1/${CDcueTrialList[i][1]}.png'>`,
         choices: jsPsych.NO_KEYS,
         trial_duration: 1000,
         data: {exp: 'changeDetection',
@@ -330,7 +330,7 @@ for (i=0; i < CDtestTrialList.length; i++){
 
     CDtestTrials.push(//first image
     {type: 'html-keyboard-response',
-        stimulus: `<img class="CDimage" src='stimuli/set1/${CDtestTrialList[i][0]}.png'>`,
+        stimulus: `<img class="CDimage" src='stimuli/CD/set1/${CDtestTrialList[i][0]}.png'>`,
         choices: jsPsych.NO_KEYS,
         trial_duration: 1000,
         data: {exp: 'changeDetection',
@@ -344,7 +344,7 @@ for (i=0; i < CDtestTrialList.length; i++){
     CDtestTrials.push(//mask image
     {
     type: 'html-keyboard-response',
-    stimulus: `<img class='CDmask' src='stimuli/mask.png'>`,
+    stimulus: `<img class='CDmask' src='stimuli/CD/mask.png'>`,
     choices: jsPsych.NO_KEYS,
     trial_duration: 500,
     data: {
@@ -357,7 +357,7 @@ for (i=0; i < CDtestTrialList.length; i++){
 
     CDtestTrials.push(//second image
     {type: 'html-keyboard-response',
-    stimulus: `<img class="CDimage" src='stimuli/set1/${CDtestTrialList[i][1]}.png'>`,
+    stimulus: `<img class="CDimage" src='stimuli/CD/set1/${CDtestTrialList[i][1]}.png'>`,
     choices: jsPsych.NO_KEYS,
     trial_duration: 1000,
     data: {exp: 'changeDetection',
@@ -408,6 +408,8 @@ var AC_CD1 = {
 			type: "AC_CD"}
 };
 
+timeline.push(AC_CD1);
+
 var AC_CD2 = {
   type: 'survey-multi-choice',
   questions: [
@@ -416,6 +418,8 @@ var AC_CD2 = {
   data: {exp: 'changeDetection',
 			type: "AC_CD"}
 };
+
+timeline.push(AC_CD2);
 
 // Demographics:
 
