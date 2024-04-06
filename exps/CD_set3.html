@@ -417,13 +417,13 @@ $.post("https://bradylab.ucsd.edu/turk/save.php",
 function FunctionWhenDoneSaving() {
         if(jsPsych.data.getURLVariable('timepoint') == 1) {
           var urlToRedirect = "https://ucsd.sona-systems.com/webstudy_credit.aspx?experiment_id=2730&credit_token=ec4659ff2e3e40ffb59c51859dcb4a07&survey_code=" +
-        jsPsych.data.getURLVariable('survey_code');
+        jsPsych.data.getURLVariable('id');
         } else if(jsPsych.data.getURLVariable('timepoint') == 2) {
           var urlToRedirect = "https://ucsd.sona-systems.com/webstudy_credit.aspx?experiment_id=2734&credit_token=f46a65ed7248446bb2f34081bb2166c0&survey_code=" +
-        jsPsych.data.getURLVariable('survey_code');
+        jsPsych.data.getURLVariable('id');
         } else if(jsPsych.data.getURLVariable('timepoint') == 3) {
           var urlToRedirect = "https://ucsd.sona-systems.com/webstudy_credit.aspx?experiment_id=2585&credit_token=94ab4d3dcdbf46f491d3411db7ef4d16&survey_code=" +
-        jsPsych.data.getURLVariable('survey_code');
+        jsPsych.data.getURLVariable('id');
         }
        window.location.href = urlToRedirect;
       };
