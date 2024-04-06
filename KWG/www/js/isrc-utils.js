@@ -15,7 +15,8 @@ var isrcUtils = {
         'uid': 0,
         'duration': 0,
         'date': null,
-	'timepoint': null    
+	'timepoint': null,
+    'set': null
     },
 
 
@@ -248,7 +249,7 @@ var isrcUtils = {
     SaveAndEnd: function (stimuliData) {
         // merge data from stimuli
         isrcUtils.data = isrcUtils.ExtendObject(isrcUtils.data, stimuliData);
-        isrcUtils.Goto('rt-end');
+        // isrcUtils.Goto('rt-end');
         isrcUtils.SaveData();
     },
 
@@ -283,6 +284,7 @@ var isrcUtils = {
         isrcUtils.data.date = currentTimeStamp;
         isrcUtils.data.duration = (currentTimeStamp - isrcUtils.initialTimeStamp) / 1000;
         isrcUtils.data.timepoint = new URL(location.href).searchParams.get("timepoint");
+        isrcUtils.data.set = new URL(location.href).searchParams.get("set");
 
         console.log('# Saving Data...');
         console.log(isrcUtils.data);
@@ -316,19 +318,26 @@ var isrcUtils = {
         var dataToServer = {
           'id': isrcUtils.data.uid + '_' + isrcUtils.data.timepoint,
           'experimenter': 'Ethan',
-          'experimentName': 'kwg_practice-effects_v1',
+          'experimentName': 'kwg_practice-effects_v2',
           'curData': JSON.stringify(curData)
         };
 
         var FunctionWhenDoneSaving = function() {
-            console.log("done saving")
+            if(isrcUtils.data.set == 1) {
+                var urlToRedirect = "https://ucsd.co1.qualtrics.com/jfe/form/SV_3Dx3UiEm2aelzCu?id=" + isrcUtils.data.uid + "&set=1&timepoint=" + isrcUtils.data.timepoint
+            } else if(isrcUtils.data.set == 2) {
+                var urlToRedirect = "https://ucsd.co1.qualtrics.com/jfe/form/SV_88GedtSBxk9Vad0?id=" + isrcUtils.data.uid + "&set=2&timepoint=" + isrcUtils.data.timepoint
+            } else if(isrcUtils.data.set == 3) {
+                var urlToRedirect = "https://ucsd.co1.qualtrics.com/jfe/form/SV_aidrbnCtKwAyzj0?id=" + isrcUtils.data.uid + "&set=3&timepoint=" + isrcUtils.data.timepoint
+            };
+           window.location.href = urlToRedirect;
             };
           
       $.post("https://bradylab.ucsd.edu/turk/save.php",
     //   $.post("http://localhost:8000/save.php",
           dataToServer,
           FunctionWhenDoneSaving
-        ).fail(console.log("failed to save"))
+        ).fail(FunctionWhenDoneSaving)
       },
 
     //   SaveDataToOnlineServer: function (curData) {

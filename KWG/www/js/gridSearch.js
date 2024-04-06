@@ -76,9 +76,9 @@ if (localStorage.getItem("gridsearch-counter-3") === null)
 
 //Declare variables not yet assigned 
 var condition,
-  gender,
-  age = 0,
-  birthDate,
+  study_part,
+  // age = 0,
+  // birthDate,
   // grade,
   searchHistory,
   initialEnvs,
@@ -100,6 +100,16 @@ function assignScenario() {
       // if (document.getElementById('Female').checked) {
       //   gender = "Female";
       // }
+  //Extract study part
+      if (document.getElementById('1').checked) {
+        study_part = 1;
+      }
+      if (document.getElementById('2').checked) {
+        study_part = 2;
+      }
+      if (document.getElementById('3').checked) {
+        study_part = 3;
+      }
 
       // var dob = document.getElementById('birthDate').value;
   // grade = parseInt(document.getElementById('gradeSelect').value);
@@ -833,6 +843,8 @@ function senddata() { //TODO: set up for tablet
     'searchHistory': searchHistory,
     'bonusLevel': bonusCollect,
     'starArray': starArray,
+    'gridMax': gridMax,
+    'study_part': study_part,
     // 'age': age,
     // 'gender': gender,
     // 'grade': grade,

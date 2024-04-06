@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' ws: 'unsafe-inline' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
-    <meta http-equiv=“Content-Security-Policy” content=“default-src ‘self’ https://bradylab.ucsd.edu/turk/save.php ws: ‘unsafe-inline’ data: gap: https://ssl.gstatic.com ‘unsafe-eval’; style-src ‘self’ ‘unsafe-inline’; media-src *; connect-src https://bradylab.ucsd.edu/turk/save.php; img-src ‘self’ data: content:;“>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://bradylab.ucsd.edu/turk/save.php ws: 'unsafe-inline' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src https://bradylab.ucsd.edu/turk/save.php; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -40,7 +40,22 @@
         <div class="tablet" id="page1" style="display:none; width:700px; margin: 15px auto; text-align: center;">
             <h3 class="text-xl">Ready to begin!</h3> 
             <br>
-        
+            <form>
+                <fieldset data-role="Part" data-type="horizontal">
+                    <!-- <legend class="text-l">Geschlecht:</legend> -->
+                    <legend class="text-l">Which part of the study is this:</legend> <!--translation-->
+                    <input type="radio" name="study-part" id="1">
+                    <!-- <label for="Male" class="text-l">&nbsp; Männlich &nbsp; </label> -->
+                    <label for="1" class="text-l">&nbsp; 1 &nbsp; </label> <!--translation-->
+                    <input type="radio" name="study-part" id="2">
+                    <!-- <label for="Female" class="text-l">&nbsp; Weiblich &nbsp; </label> -->
+                    <label for="2" class="text-l">&nbsp; 2 &nbsp; </label> <!--translation-->
+                    <input type="radio" name="study-part" id="3">
+                    <!-- <label for="Female" class="text-l">&nbsp; Weiblich &nbsp; </label> -->
+                    <label for="3" class="text-l">&nbsp; 3 &nbsp; </label> <!--translation-->
+                </fieldset>
+            </form>
+            <br>
             <button class='btn-primary text-xl' type="button" name="button" id="buttonAssignScenario">Start</button>
         </div>
 
@@ -208,7 +223,7 @@
             <div id="alertGridDiv" style="display:none">
                 <h2>Bonus round!</h2>
                 <p class="text-xl">
-                    I’m going to ask you questions about five different boxes that you haven’t revealed yet. 
+                    I'm going to ask you questions about five different boxes that you haven't revealed yet. 
                     For each box, you will estimate how many points you would get if you clicked on it. 
                     After that, you will pick one of the five boxes to reveal and then the game will continue normally.
                     <br><br>
@@ -390,13 +405,13 @@
         </div>
 
         <!-- End screen -->
-        <div id="rt-end" class="route">
+        <!-- <div id="rt-end" class="route">
             <h1>Great! You can now go back to the other page and complete the next part!</h1>
             <p id="debug-out"></p>
-            <br><br>
+            <br><br> -->
             <!-- <button id="btn-app-restart" onclick="window.location.href = 'https://www.google.com'">Complete</button> -->
-            <button id="btn-app-restart" onclick="function() {console.log('redirect in rt-end')}">Complete</button>
-        </div>
+            <!-- <button id="btn-app-restart" onclick="function(){console.log('redirect in rt-end')}">Complete</button>
+        </div> -->
 
 
     </div>
