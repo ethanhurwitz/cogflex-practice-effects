@@ -844,14 +844,14 @@ function senddata() { //TODO: set up for tablet
     'bonusLevel': bonusCollect,
     'starArray': starArray,
     'gridMax': gridMax,
-    'study_part': study_part,
+    'timepoint': study_part,
     // 'age': age,
     // 'gender': gender,
     // 'grade': grade,
     'testerNotes': testerNotes
   };
 
-  incrementCounter();
+  // incrementCounter();
 
   console.log("[DEBUG] SavaData Array:");
   console.log(saveDataArray);
@@ -1025,15 +1025,15 @@ function turkGetParam(name) {
   }
 }
 
-function getAge(birthDate) {
+// function getAge(birthDate) {
 
-  var dob = new Date(birthDate);
-  var today = new Date();
-  var age2 = today.getFullYear() - dob.getFullYear();
-  var m = today.getMonth() - dob.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age2--;
-  return age2;
-}
+//   var dob = new Date(birthDate);
+//   var today = new Date();
+//   var age2 = today.getFullYear() - dob.getFullYear();
+//   var m = today.getMonth() - dob.getMonth();
+//   if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age2--;
+//   return age2;
+// }
 
 function getCounter(counterName) {
   if (localStorage.getItem(counterName) === null)
@@ -1042,18 +1042,18 @@ function getCounter(counterName) {
     return parseInt(localStorage.getItem(counterName));
 }
 
-function incrementCounter() {
-  var counter = 0;
-  if (age <= 9) {
-    counter = getCounter("gridsearch-counter-1");
-    localStorage.setItem("gridsearch-counter-1", counter + 1);
-  } else if (age > 9 && age < 18) {
-    counter = getCounter("gridsearch-counter-2");
-    localStorage.setItem("gridsearch-counter-2", counter + 1);
-  } else if (age > 18) {
-    counter = getCounter("gridsearch-counter-3");
-    localStorage.setItem("gridsearch-counter-3", counter + 1);
-  }
-}
+// function incrementCounter() {
+//   var counter = 0;
+//   if (age <= 9) {
+//     counter = getCounter("gridsearch-counter-1");
+//     localStorage.setItem("gridsearch-counter-1", counter + 1);
+//   } else if (age > 9 && age < 18) {
+//     counter = getCounter("gridsearch-counter-2");
+//     localStorage.setItem("gridsearch-counter-2", counter + 1);
+//   } else if (age > 18) {
+//     counter = getCounter("gridsearch-counter-3");
+//     localStorage.setItem("gridsearch-counter-3", counter + 1);
+//   }
+// }
 
 //END
