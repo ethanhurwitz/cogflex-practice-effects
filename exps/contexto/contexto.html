@@ -164,7 +164,7 @@ const getBarColor = (distance) => {
 </script>
 
 <div class="consent">
-  <!-- <iframe src="https://ucsd-phri.github.io/2101/exps/contexto/151866_AdultConsent_MTurk.pdf#toolbar=0" width="100%" height="500px"></iframe> -->
+  <iframe src="https://ucsd-phri.github.io/2101/exps/contexto/151866_AdultConsent_MTurk.pdf#toolbar=0" width="100%" height="500px"></iframe>
 <!--   <div style="width:350px; height:100px; position: relative; padding: 15px 0px; margin: auto;">
     <span contentEditable="true" id="id_input" class="id_input" style="margin:auto; display:block; padding: 20px 10px; line-height: 28px; font-size:25px; border-style: solid; text-align: center;">Replace Text With Your ID</span>
   </div> -->
@@ -175,9 +175,9 @@ const getBarColor = (distance) => {
  </div>
 </div>
 
-<form id="demographicsForm">
+<form id="demographicsForm" style="display:none">
         <label for="age">Current Age:</label>
-        <input type="number" id="age" name="age" min="0" required>
+        <input type="number" id="age" name="age" min="0" style="display:true" required>
         <br><br>
         <label for="gender">Gender Identity:</label>
         <select id="gender" name="gender" required>
