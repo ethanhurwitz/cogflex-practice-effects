@@ -31,6 +31,8 @@
     // 'partID2': jsPsych.data.getURLVariable('ID'),	  
     'date': new Date(),
     'timepoint': jsPsych.data.getURLVariable('timepoint'),
+    'age': '',
+    'gender': '',
     'data': [
   ]
   };
@@ -167,11 +169,28 @@ const getBarColor = (distance) => {
     <span contentEditable="true" id="id_input" class="id_input" style="margin:auto; display:block; padding: 20px 10px; line-height: 28px; font-size:25px; border-style: solid; text-align: center;">Replace Text With Your ID</span>
   </div> -->
   <div style="position: relative; padding: 15px 0px;">
-    <button type="button" class="button" style="margin:0 auto; display:block;" onclick="begin()">
+    <button type="button" class="button" style="margin:0 auto; display:block;" onclick="begin_demo()">
       <div style="min-width: 104px;">Continue</div>
    </button>
  </div>
 </div>
+
+<form id="demographicsForm">
+        <label for="age">Current Age:</label>
+        <input type="number" id="age" name="age" min="0" required>
+        <br><br>
+        <label for="gender">Gender Identity:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select your gender identity</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="nonbinary">Non-binary</option>
+            <option value="other">Other</option>
+        </select>
+        <br><br>
+        <button type="button" class="button"  style="margin:0 auto; display:block;" onclick="begin()">
+		<div style="min-width: 104px;">Continue</button>
+    </form>	
 
 <!-- <div class="consent">
   <iframe src="https://ucsd-phri.github.io/2101/exps/contexto/151866_AdultConsent_MTurk.pdf#toolbar=0" width="100%" height="500px"></iframe>
@@ -598,11 +617,23 @@ function FunctionWhenDoneSaving() {
   (() => {
     $("#root").hide()
   })();
+
+    var begin_demo = function() {
+      // data.id.push($(".id_input").text());
+      $("#demographicsForm").show();
+      $(".consent").hide();
+    };	
     
     var begin = function() {
       // data.id.push($(".id_input").text());
+        if ($('#age').val() === '' || $('#gender').val() === '') {
+            alert('Please complete all fields.');
+            return;
+        }
+      data.age = $('#age').val();
+      data.gender = $('#gender').val();
       $("#root").show();
-      $(".consent").hide();
+      $("#demographicsForm").hide();
     };
   </script>
 
