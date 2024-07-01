@@ -8,7 +8,12 @@
   <script src="https://psyc241.ucsd.edu/jspsych-6.1.0/jspsych.js"></script>
   <!-- <script defer="defer" src="static/js/main.341327a7.js"></script> -->
   <link href="css/main.css" rel="stylesheet">
-  
+      <style>
+        /* Ensure the age input is visible */
+        #age {
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
     <script src="bower_components/underscore/underscore.js"></script>
@@ -33,6 +38,7 @@
     'timepoint': jsPsych.data.getURLVariable('timepoint'),
     'age': '',
     'gender': '',
+    'race': '',
     'data': [
   ]
   };
@@ -186,6 +192,16 @@ const getBarColor = (distance) => {
             <option value="female">Female</option>
             <option value="nonbinary">Non-binary</option>
             <option value="other">Other</option>
+        </select>
+	<select id="race" name="race" required>
+            <option value="">Select your ethnoracial identity</option>
+            <option value="native">Indigenous American or Alaska Native</option>
+            <option value="asian">Asian</option>
+            <option value="black">Black or African American</option>
+            <option value="pacific_islander"> Native Hawaiian or Other Pacific Islander</option>
+	    <option value="white">White</option>
+	    <option value="multi">Multi-Racial</option>	
+		American Indian or Alaska Native, Asian, Black or African American, Native Hawaiian or Other Pacific Islander, and White
         </select>
         <br><br>
         <button type="button" class="button"  style="margin:0 auto; display:block;" onclick="begin()">
@@ -626,12 +642,13 @@ function FunctionWhenDoneSaving() {
     
     var begin = function() {
       // data.id.push($(".id_input").text());
-        if ($('#age').val() === '' || $('#gender').val() === '') {
+        if ($('#age').val() === '' || $('#gender').val() === '' || $('#race').val() === '') {
             alert('Please complete all fields.');
             return;
         }
       data.age = $('#age').val();
       data.gender = $('#gender').val();
+      data.race = $('#race').val();
       $("#root").show();
       $("#demographicsForm").hide();
     };
