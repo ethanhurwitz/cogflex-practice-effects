@@ -247,7 +247,7 @@ timeline.push({
         type: 'survey-multi-choice',
         questions: [
           {
-            prompt: `Now that you've seen these objects on the machine, do you think that <b>${training_stim[i]}</b> is a ${stim_set}?<br><br>`+
+            prompt: `Now that you've seen these objects on the machine, do you think that <b>${training_stim[i].slice(0, -2)}</b> is a ${stim_set}?<br><br>`+
             `<img class="blickets" src="stimuli/${training_stim[i]}.png">`,
             options: [`Yes, it is a ${stim_set}.`, `No, it is not a ${stim_set}.`],
             // options: ["<br>Yes, it is a blicket.", "<br>No, it is not a blicket."],
@@ -263,7 +263,7 @@ timeline.push({
 timeline.push({
         type: 'html-slider-response',
         prompt: `<br><br>`,
-        stimulus: `How confident are you about whether <b>${training_stim[i]}</b> is a ${stim_set}?<br><br>` + 
+        stimulus: `How confident are you about whether <b>${training_stim[i].slice(0, -2)}</b> is a ${stim_set}?<br><br>` + 
         `<img class="blickets" src="stimuli/${training_stim[i]}.png">`,
         labels: ["Not confident<br>at all", "Not very<br>confident", "Kind of<br>confident", "Confident", "Extremely<br>confident"],
         require_movement: true,
@@ -278,10 +278,10 @@ timeline.push({
 timeline.push({
     type: 'survey-multi-select',
     questions: [{prompt: "Now it's your turn. Which of these would you use to turn on the machine yourself? <br><b>Use only what you need to activate the machine.</b>", 
-                options: [`${training_stim[0]}<br><img class="blicketsSmall" src="stimuli/${training_stim[0]}.png">`,
-                        `${training_stim[1]}<br><img class="blicketsSmall" src="stimuli/${training_stim[1]}.png">`,
-                        `${training_stim[2]}<br><img class="blicketsSmall" src="stimuli/${training_stim[2]}.png">`],
-                        values: [`${training_stim[0]}`, `${training_stim[1]}`, `${training_stim[2]}`],//TEST 
+                options: [`${training_stim[0].slice(0, -2)}<br><img class="blicketsSmall" src="stimuli/${training_stim[0]}.png">`,
+                        `${training_stim[1].slice(0, -2)}<br><img class="blicketsSmall" src="stimuli/${training_stim[1]}.png">`,
+                        `${training_stim[2].slice(0, -2)}<br><img class="blicketsSmall" src="stimuli/${training_stim[2]}.png">`],
+                        values: [`${training_stim[0].slice(0, -2)}`, `${training_stim[1].slice(0, -2)}`, `${training_stim[2].slice(0, -2)}`],//TEST 
                 horizontal: true,
                 required: true
             }],
@@ -365,7 +365,7 @@ timeline.push({
         type: 'survey-multi-choice',
         questions: [
           {
-            prompt: `Now that you've seen these objects on the machine, do you think that <b>${test_stim[i]}</b> is a ${stim_set}?<br><br>`+
+            prompt: `Now that you've seen these objects on the machine, do you think that <b>${test_stim[i].slice(0, -2)}</b> is a ${stim_set}?<br><br>`+
             `<img class="blickets" src="stimuli/${test_stim[i]}.png">`,
             options: [`Yes, it is a ${stim_set}.`, `No, it is not a ${stim_set}.`],
             values: [`${stim_set}`, `Not${stim_set}`], 
@@ -380,7 +380,7 @@ timeline.push({
 timeline.push({
         type: 'html-slider-response',
         prompt: `<br><br>`,
-        stimulus: `How confident are you about whether <b>${test_stim[i]}</b> is a ${stim_set}?<br><br>` + 
+        stimulus: `How confident are you about whether <b>${test_stim[i].slice(0, -2)}</b> is a ${stim_set}?<br><br>` + 
         `<img class="blickets" src="stimuli/${test_stim[i]}.png">`,
         labels: ["Not confident<br>at all", "Not very<br>confident", "Kind of<br>confident", "Confident", "Extremely<br>confident"],
         require_movement: true,
@@ -395,9 +395,9 @@ timeline.push({
 timeline.push({
     type: 'survey-multi-select',
     questions: [{prompt: "Now it's your turn. Which of these would you use to turn on the machine yourself? <br><b>Use only what you need to activate the machine.</b>", 
-                options: [`${test_stim[0]}<br><img class="blicketsSmall" src="stimuli/${test_stim[0]}.png">`,
-                        `${test_stim[1]}<br><img class="blicketsSmall" src="stimuli/${test_stim[1]}.png">`,
-                        `${test_stim[2]}<br><img class="blicketsSmall" src="stimuli/${test_stim[2]}.png">`], 
+                options: [`${test_stim[0].slice(0, -2)}<br><img class="blicketsSmall" src="stimuli/${test_stim[0]}.png">`,
+                        `${test_stim[1].slice(0, -2)}<br><img class="blicketsSmall" src="stimuli/${test_stim[1]}.png">`,
+                        `${test_stim[2].slice(0, -2)}<br><img class="blicketsSmall" src="stimuli/${test_stim[2]}.png">`], 
                 horizontal: true,
                 required: true
             }],
